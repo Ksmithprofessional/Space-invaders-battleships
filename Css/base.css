@@ -1,0 +1,65 @@
+#ship {
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+}
+
+.bullet {
+  width: 3px;
+  height: 3px;
+  background-color: black;
+  display: none;
+  position: absolute;
+  bottom: 5;
+}
+
+.game-container {
+  width: 1010px;
+  height: 515px;
+  position: relative;
+  border: 1px solid black;
+}
+
+body {
+  margin: 0 auto;
+  width: 54vw;
+}
+
+h1,
+h3 {
+  text-align: center;
+}
+
+.enemy-1,
+.enemy-2,
+.enemy-3 {
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  position: absolute;
+  display: none;
+}
+
+.columns {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[21];
+      grid-template-columns: repeat(21, 1fr);
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  width: 1010px;
+}
+
+.columns p {
+  width: 50px;
+}
+
+.enemy-1-explode,
+.enemy-2-explode,
+.enemy-3-explode {
+  display: none;
+  position: absolute;
+}
+/*# sourceMappingURL=base.css.map */
