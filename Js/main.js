@@ -51,6 +51,9 @@ function logKey(e) {
         if (shipPos === 1000) {
 
             e.preventDefault();
+        } if (bulletPos > 5 && bulletPos < 505) {
+
+            e.preventDefault();
         } else {
             shipPos += 50;
             // console.log('hello');
@@ -62,6 +65,9 @@ function logKey(e) {
         if (shipPos === 0) {
 
             e.preventDefault();
+        } if (bulletPos > 5 && bulletPos < 505) {
+
+            e.preventDefault();
         } else {
 
             shipPos -= 50;
@@ -70,53 +76,60 @@ function logKey(e) {
         }
     } if (e.keyCode === 87) {
 
-        remainingBullets -= 1;
-        shipTotal.textContent = "Ships remaining: " + remainingShips + " Remaining shots: " + remainingBullets;
-        bulletPos = 5;
-        bullet.style.left = shipPos + 4 + "px";
-        bullet.style.display = "block";
-        bullet.style.bottom = bulletPos + 50 + "px";
+        if (bulletPos > 5 && bulletPos < 505) {
 
-        for (let i=0; i<10; i++){
+            e.preventDefault();
+        } else {
 
-            // console.log('hello');
-            setTimeout(function(){
-                bulletPos += 50;
-                bullet.style.bottom = bulletPos + "px";
+            remainingBullets -= 1;
+            shipTotal.textContent = "Ships remaining: " + remainingShips + " Remaining shots: " + remainingBullets;
+            bulletPos = 5;
+            bullet.style.left = shipPos + 4 + "px";
+            bullet.style.display = "block";
+            bullet.style.bottom = bulletPos + 50 + "px";
 
-                if (bulletPos === bottomPos1 && shipPos === leftPos1) {
+            for (let i=0; i<10; i++){
 
-                    shipTotal.textContent = "Ships remaining: " + (remainingShips -= 1) + " Remaining shots: " + remainingBullets;
-                    enemy1.style.left = "-20px";
-                    enemy1.style.bottom = "495px";
-                    enemy1.style.display = "block";
-                    enemy1Ex.style.display = "block";
+                // console.log('hello');
+                setTimeout(function(){
+                    bulletPos += 50;
+                    bullet.style.bottom = bulletPos + "px";
 
-                } if (bulletPos === bottomPos2 && shipPos === leftPos2) {
+                    if (bulletPos === bottomPos1 && shipPos === leftPos1) {
 
-                    shipTotal.textContent = "Ships remaining: " + (remainingShips -= 1) + " Remaining shots: " + remainingBullets;
-                    enemy2.style.left = "-20px";
-                    enemy2.style.bottom = "475px";
-                    enemy2.style.display = "block";
-                    enemy2Ex.style.display = "block";
+                        shipTotal.textContent = "Ships remaining: " + (remainingShips -= 1) + " Remaining shots: " + remainingBullets;
+                        enemy1.style.left = "-20px";
+                        enemy1.style.bottom = "495px";
+                        enemy1.style.display = "block";
+                        enemy1Ex.style.display = "block";
 
-                } if (bulletPos === bottomPos3 && shipPos === leftPos3) {
+                    } if (bulletPos === bottomPos2 && shipPos === leftPos2) {
 
-                    shipTotal.textContent = "Ships remaining: " + (remainingShips -= 1) + " Remaining shots: " + remainingBullets;
-                    enemy3.style.left = "-20px";
-                    enemy3.style.bottom = "455px";
-                    enemy3.style.display = "block";
-                    enemy3Ex.style.display = "block";
+                        shipTotal.textContent = "Ships remaining: " + (remainingShips -= 1) + " Remaining shots: " + remainingBullets;
+                        enemy2.style.left = "-20px";
+                        enemy2.style.bottom = "475px";
+                        enemy2.style.display = "block";
+                        enemy2Ex.style.display = "block";
 
-                } if (remainingShips === 0) {
-                    setTimeout(function(){
-                    alert('You win! Please refresh to play again');
-                }, 1000);
-                } if (remainingBullets === -1) {
+                    } if (bulletPos === bottomPos3 && shipPos === leftPos3) {
 
-                    alert('You ran out of bullets! Please refresh to play again');
-                }
-            }, 300 * i);
+                        shipTotal.textContent = "Ships remaining: " + (remainingShips -= 1) + " Remaining shots: " + remainingBullets;
+                        enemy3.style.left = "-20px";
+                        enemy3.style.bottom = "455px";
+                        enemy3.style.display = "block";
+                        enemy3Ex.style.display = "block";
+
+                    } if (remainingShips === 0) {
+                        setTimeout(function(){
+                        alert('You win! Please refresh to play again');
+                    }, 1000);
+                    } if (remainingBullets === -1) {
+
+                        alert('You ran out of bullets! Please refresh to play again');
+                    } 
+                }, 300 * i);
+            }
+
         }
        
     }
